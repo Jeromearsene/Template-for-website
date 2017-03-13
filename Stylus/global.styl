@@ -1,0 +1,39 @@
+ressources = "../../Ressources/"
+images = ressources+"images/"
+fonts = ressources+"fonts/"
+
+
+/* Soulignage dynamique au hover*/
+underlineAnimated(start, existUnderline=false, colorText=black, colorLine=black)
+  // Check d'où part le soulignage
+  if (start == left)
+    leftPadding = 0%
+  else if (start == center)
+    leftPadding = 50%
+  else if (start == right)
+    leftPadding = 100%
+
+  initialWithUnderline = 0%
+
+  // Check si il y a un petit soulignage avant le hover
+  if existUnderline
+    initialWithUnderline = 10%
+
+
+  &:after
+    display: block;
+    content: "";
+    position: relative;
+    left: leftPadding - (initialWithUnderline / 2)
+    bottom: -10px;
+    width: initialWithUnderline
+    height: 1px;
+    background-color: colorLine;
+    transition: 0.5s;
+
+  &:hover
+    color: colorText;
+
+  &:hover:after
+    left 0
+    width: 100%;

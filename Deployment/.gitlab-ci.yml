@@ -1,0 +1,23 @@
+
+image: bynd/python-node
+
+cache:
+  paths:
+    - node_modules/
+
+before_script:
+  - npm install
+  - npm install -g grunt-cli
+  - npm run grunt
+  - apt-get install -y python2.7
+  - apt-get install -y python-pip
+
+
+deploy_review:
+  type: deploy
+  stage: deploy
+  only:
+    - master
+  script:
+    - python Script_Deployment.py
+
