@@ -1,8 +1,9 @@
 {
-  "name": "",
-  "description": "README/README.md",
+  "name": "Template-for-website",
+  "description": "README.md",
+  "author": "jeromearsene@gmail.com",
   "version": "0.0.1",
-  "private": true,
+  "private": false,
   "scripts": {
     "postinstall": "sudo npm install stylus -g",
     "grunt": "grunt"
